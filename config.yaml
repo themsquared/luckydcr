@@ -1,0 +1,31 @@
+# Wallet Provider API 
+api: 
+  provider: poloniex # Only poloniex for now
+  key: XXXXXXX
+  secret: YYYYYYY
+
+# Available Currencies
+currencies: 
+  - symbol: DCR
+    max_bet: 5
+    min_balance: 0.0001
+    min_bet: 0.0001
+    wallet_address: XXXXXX
+
+# Available Games
+games:  
+  - dice # Only Dice Right Now
+
+# MongoDB Database Settings
+db: 
+  host: localhost
+  name: luckydcr
+  user: foo
+  pass: bar
+
+# Site Settings
+site: 
+  description: "Decred Odds Game"
+  separator: "::"
+  title: LuckyDCR
+  theme: cosmo # Bootswatch Theme
