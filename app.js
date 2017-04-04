@@ -7,6 +7,8 @@ var bodyParser = require('body-parser');
 
 var config = require('./config');
 
+var user = require('./models/user');
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
