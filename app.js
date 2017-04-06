@@ -16,10 +16,14 @@ var app = express();
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 
+// Configure session
 app.use(session({
-    store = new RedisStore({config.redis}),
-    secret = config.session.secret,
-});
+    store: new RedisStore(config.redis),
+    secret: config.session.secret,
+    cookie: {
+        maxAge: config.session.maxAge
+    }
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
