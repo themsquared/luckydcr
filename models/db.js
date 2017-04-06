@@ -12,4 +12,4 @@ db.once('open', function() {
   console.log("Connected to "+config.db.name+" on MongoDB");
 });
 
-module.exports = db;
+module.exports = mongoose;
