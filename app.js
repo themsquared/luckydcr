@@ -13,6 +13,13 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+
+app.use(session({
+    store = new RedisStore({config.redis}),
+    secret = config.session.secret,
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

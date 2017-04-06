@@ -1,3 +1,7 @@
+# Session Information
+session:
+  secret: XXXXXX
+
 # Wallet Provider API 
 api: 
   provider: poloniex # Only poloniex for now
