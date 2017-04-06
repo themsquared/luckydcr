@@ -30,3 +30,5 @@ var User = new Schema({
     transactions: [Transaction],
     balance: {type: Number, default: 0.0}
 });
+
+module.exports = User;
