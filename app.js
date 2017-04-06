@@ -9,8 +9,12 @@ var config = require('./config');
 
 var user = require('./models/user');
 
+var base = require('./routes/base');
 var index = require('./routes/index');
 var users = require('./routes/users');
+var login = require('./routes/login');
+var logout = require('./routes/logout');
+var signup = require('./routes/signup');
 
 var app = express();
 var session = require('express-session');
@@ -21,7 +25,8 @@ app.use(session({
     store: new RedisStore(config.redis),
     secret: config.session.secret,
     cookie: {
-        maxAge: config.session.maxAge
+        maxAge: config.session.maxAge,
+        sameSite: config.session.sameSite
     }
 }));
 
@@ -39,6 +44,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/signup', signup);
+app.use('/logout', logout);
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
