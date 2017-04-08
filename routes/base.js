@@ -6,6 +6,7 @@ var config = require('../config');
 // predicate the router with a check and bail out when needed
 router.use(function (req, res, next) {
   res.locals = config.app;
+  res.locals.session = req.session;
   next()
 });
 
