@@ -43,17 +43,24 @@ html(lang='en')
               a(href='https://dcrstakes.com', target='_blank') 
                 i.fa.fa-external-link
                 |  DCR Stakepool
-          ul.nav.navbar-nav.navbar-right
-            if session.loggedIn
-              li
-                a(href="/logout")
-                  i.fa.fa-sign-out
-                  |  Logout
+          if !session.loggedin
+            form.navbar-form.navbar-right
+              a.btn.btn-primary(href="/signup") 
+                i.fa.fa-user-circle-o
+                |  Sign Up
+          form.navbar-form.navbar-right
+            if session.loggedin
+              a.btn.btn-danger(href="/logout")
+                i.fa.fa-sign-out
+                |  Logout
             else
+              a.btn.btn-success(href="/login")
+                i.fa.fa-sign-in
+                |  Login
+          if session.loggedin
+            ul.nav.navbar-nav.navbar-right
               li
-                a(href="/login")
-                  i.fa.fa-sign-in
-                  |  Login
+                a= "Welcome "+session.userid
     .container
       block content
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js", integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", crossorigin="anonymous")
