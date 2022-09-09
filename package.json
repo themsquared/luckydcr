@@ -12,7 +12,7 @@
     "express": "~4.16.0",
     "morgan": "~1.9.1",
     "pug": "~3.0.1",
-    "serve-favicon": "~2.4.2",
+    "serve-favicon": "~2.5.0",
     "poloniex-api-node": "~1.0.1",
     "mongoose": "~5.13.15"
   }
